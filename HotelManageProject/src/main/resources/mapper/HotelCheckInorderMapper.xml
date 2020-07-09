@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.IHotelCheckInorderDao">
+
+	<resultMap id="HotelCheckInorderMap" type="com.pojo.HotelCheckInorder">
+		<id column="check_inorder_id" property="checkInorderId"/>
+		<result column="check_inorder_guest_name" property="checkInorderGuestName"/>
+		<result column="check_inorder_man_number" property="checkInorderManNumber"/>
+		<result column="check_inorder_guest_catalog" property="checkInorderGuestCatalog"/>
+		<result column="check_inorder_guest_type" property="checkInorderGuestType"/>
+		<result column="check_inorder_group_name" property="checkInorderGroupName"/>
+		<result column="check_inorder_guest_card_catalog" property="checkInorderGuestCardCatalog"/>
+		<result column="check_inorder_guest_card_id" property="checkInorderGuestCardId"/>
+		<result column="check_inorder_cause" property="checkInorderCause"/>
+		<result column="check_inorder_state" property="checkInorderState"/>
+		<result column="check_inorder_in_datetime" property="checkInorderInDatetime"/>
+		<result column="check_inorder_pre_out_datetime" property="checkInorderPreOutDatetime"/>
+		<result column="check_inorder_prc_out_datetime" property="checkInorderPrcOutDatetime"/>
+		<result column="check_inorder_payment_model" property="checkInorderPaymentModel"/>
+		<result column="check_inorder_paid_money" property="checkInorderPaidMoney"/>
+		<result column="check_inorder_is_reservid" property="checkInorderIsReservid"/>
+		<result column="check_inorder_operator" property="checkInorderOperator"/>
+		<result column="check_inorder_guest_sex" property="checkInorderGuestSex"/>
+		<result column="check_inorder_total_rate" property="checkInorderTotalRate"/>
+		<result column="check_inorder_bed_rate" property="checkInorderBedRate"/>
+		<result column="check_inorder_order_id" property="checkInorderOrderId"/>
+	</resultMap>
+
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.IHotelOperatorDao">
+
+	<resultMap id="HotelOperatorMap" type="com.pojo.HotelOperator">
+		<id column="ope_username" property="opeUsername"/>
+		<result column="ope_password" property="opePassword"/>
+		<result column="ope_privilege" property="opePrivilege"/>
+		<result column="ope_address" property="opeAddress"/>
+		<result column="ope_name" property="opeName"/>
+		<result column="ope_telephone" property="opeTelephone"/>
+		<result column="ope_mobile" property="opeMobile"/>
+		<result column="ope_zip" property="opeZip"/>
+		<result column="ope_create_time" property="opeCreateTime"/>
+	</resultMap>
+
+</mapper>
