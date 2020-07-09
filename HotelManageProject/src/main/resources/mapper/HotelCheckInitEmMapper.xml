@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.IHotelCheckInitEmDao">
+
+	<resultMap id="HotelCheckInitEmMap" type="com.pojo.HotelCheckInitEm">
+		<id column="check_init_em_id" property="checkInitEmId"/>
+		<result column="check_init_em_order_id" property="checkInitEmOrderId"/>
+		<result column="check_init_em_room_id" property="checkInitEmRoomId"/>
+		<result column="check_init_em_prct_price" property="checkInitEmPrctPrice"/>
+		<result column="check_init_em_discount" property="checkInitEmDiscount"/>
+		<result column="check_init_em_in_datetime" property="checkInitEmInDatetime"/>
+		<result column="check_init_em_out_datetime" property="checkInitEmOutDatetime"/>
+		<result column="check_init_em_state" property="checkInitEmState"/>
+	</resultMap>
+
+</mapper>
