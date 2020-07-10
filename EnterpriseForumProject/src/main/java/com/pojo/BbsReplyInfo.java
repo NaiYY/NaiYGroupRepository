@@ -83,4 +83,17 @@ public class BbsReplyInfo {
         this.rModifyTime = rModifyTime;
     }
 
+    @Override
+    public String toString() {
+        return "BbsReplyInfo{" +
+                "rId=" + rId +
+                ", rTId=" + rTId +
+                ", rSId=" + rSId +
+                ", rUId=" + rUId +
+                ", rTopic='" + rTopic + '\'' +
+                ", rContents='" + rContents + '\'' +
+                ", rPublishTime=" + rPublishTime +
+                ", rModifyTime=" + rModifyTime +
+                '}';
+    }
 }

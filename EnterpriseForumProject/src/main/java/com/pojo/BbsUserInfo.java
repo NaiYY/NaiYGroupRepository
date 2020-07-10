@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.sql.Date;
-import java.sql.Timestamp;
+
 
 @TableName("bbs_user_info")
 public class BbsUserInfo {
@@ -15,7 +15,7 @@ public class BbsUserInfo {
     private String uPassword;
     private Boolean uSex;
     private String uFace;
-    private Timestamp uRegTime;
+    private Date uRegTime;
     private Integer uType;
 
     public Integer getUId() {
@@ -58,11 +58,11 @@ public class BbsUserInfo {
         this.uFace = uFace;
     }
 
-    public Timestamp getURegTime() {
+    public Date getURegTime() {
         return uRegTime;
     }
 
-    public void setURegTime(Timestamp uRegTime) {
+    public void setURegTime(Date uRegTime) {
         this.uRegTime = uRegTime;
     }
 
@@ -74,4 +74,16 @@ public class BbsUserInfo {
         this.uType = uType;
     }
 
+    @Override
+    public String toString() {
+        return "BbsUserInfo{" +
+                "uId=" + uId +
+                ", uName='" + uName + '\'' +
+                ", uPassword='" + uPassword + '\'' +
+                ", uSex=" + uSex +
+                ", uFace='" + uFace + '\'' +
+                ", uRegTime=" + uRegTime +
+                ", uType=" + uType +
+                '}';
+    }
 }

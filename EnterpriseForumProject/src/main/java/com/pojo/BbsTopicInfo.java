@@ -92,4 +92,18 @@ public class BbsTopicInfo {
         this.tModifyTime = tModifyTime;
     }
 
+    @Override
+    public String toString() {
+        return "BbsTopicInfo{" +
+                "tId=" + tId +
+                ", tSId=" + tSId +
+                ", tUId=" + tUId +
+                ", tTopic='" + tTopic + '\'' +
+                ", tContents='" + tContents + '\'' +
+                ", tReplyCount=" + tReplyCount +
+                ", tClickCount=" + tClickCount +
+                ", tPublishTime=" + tPublishTime +
+                ", tModifyTime=" + tModifyTime +
+                '}';
+    }
 }
