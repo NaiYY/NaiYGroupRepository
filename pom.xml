@@ -22,7 +22,7 @@
 
     <modules>
         <module>EnterpriseForumProject</module>
-        <module>HotelManageProject</module>
+        <module>OnlineShoppingMallProject</module>
         <module>QuotationManageProject</module>
     </modules>
 
