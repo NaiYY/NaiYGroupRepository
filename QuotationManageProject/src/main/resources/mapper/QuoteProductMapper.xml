@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.IQuoteProductDao">
+
+	<resultMap id="QuoteProductMap" type="com.pojo.QuoteProduct">
+		<result column="product_id" property="productId"/>
+		<result column="producttype_id" property="producttypeId"/>
+		<result column="product_name" property="productName"/>
+		<result column="producing_area" property="producingArea"/>
+		<result column="product_Owner" property="productOwner"/>
+		<result column="unit" property="unit"/>
+		<result column="price" property="price"/>
+		<result column="quantity" property="quantity"/>
+		<result column="other_info" property="otherInfo"/>
+	</resultMap>
+
+</mapper>
