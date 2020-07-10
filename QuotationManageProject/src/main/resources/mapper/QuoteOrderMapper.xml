@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.IQuoteOrderDao">
+
+	<resultMap id="QuoteOrderMap" type="com.pojo.QuoteOrder">
+		<result column="order_id" property="orderId"/>
+		<result column="customer_id" property="customerId"/>
+		<result column="product_id" property="productId"/>
+		<result column="order_time" property="orderTime"/>
+		<result column="quantity" property="quantity"/>
+		<result column="other_info" property="otherInfo"/>
+	</resultMap>
+
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.IQuoteCustomerDao">
+
+	<resultMap id="QuoteCustomerMap" type="com.pojo.QuoteCustomer">
+		<result column="customer_id" property="customerId"/>
+		<result column="customer_name" property="customerName"/>
+		<result column="phone" property="phone"/>
+		<result column="address" property="address"/>
+		<result column="relationman" property="relationman"/>
+		<result column="other_info" property="otherInfo"/>
+	</resultMap>
+
+</mapper>
