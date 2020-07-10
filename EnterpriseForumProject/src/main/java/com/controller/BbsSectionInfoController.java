@@ -3,5 +3,5 @@ package com.controller;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class BbsSectionInfoController  {
+public class BbsSectionInfoController {
 }

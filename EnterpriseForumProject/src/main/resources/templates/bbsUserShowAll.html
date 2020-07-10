@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>查询所有论坛用户</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>用户编号</td>
+        <td>用户名</td>
+        <td>用户密码</td>
+        <td>用户性别</td>
+        <td>用户头像路径</td>
+        <td>用户注册时间</td>
+        <td>用户类型</td>
+    </tr>
+
+    <tr th:each="temp,userStart:${bbsUserInfoList}">
+        <td th:text="${temp.getUId()}"></td>
+        <td th:text="${temp.getUName()}"></td>
+        <td th:text="${temp.getUSex()}"></td>
+        <td th:text="${temp.getUPassword()}"></td>
+        <td th:text="${temp.getUFace()}"></td>
+        <td th:text="${temp.getURegTime()}"></td>
+        <td th:text="${temp.getUType()}"></td>
+    </tr>
+</table>
+</body>
+</html>
