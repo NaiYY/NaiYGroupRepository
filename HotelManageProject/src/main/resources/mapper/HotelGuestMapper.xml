@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.IHotelGuestDao">
+
+	<resultMap id="HotelGuestMap" type="com.pojo.HotelGuest">
+		<id column="guest_id" property="guestId"/>
+		<result column="guest_name" property="guestName"/>
+		<result column="guest_type" property="guestType"/>
+		<result column="guest_card" property="guestCard"/>
+		<result column="guest_country" property="guestCountry"/>
+		<result column="guest_address" property="guestAddress"/>
+		<result column="guest_zip" property="guestZip"/>
+		<result column="guest_company" property="guestCompany"/>
+		<result column="guest_telephone" property="guestTelephone"/>
+		<result column="guest_mobile" property="guestMobile"/>
+		<result column="guest_sex" property="guestSex"/>
+		<result column="guest_email" property="guestEmail"/>
+		<result column="guest_create_time" property="guestCreateTime"/>
+	</resultMap>
+
+</mapper>

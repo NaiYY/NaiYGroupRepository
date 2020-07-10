@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.IBbsReplyInfoDao">
+
+	<resultMap id="BbsReplyInfoMap" type="com.pojo.BbsReplyInfo">
+		<id column="r_id" property="rId"/>
+		<result column="r_t_id" property="rTId"/>
+		<result column="r_s_id" property="rSId"/>
+		<result column="r_u_id" property="rUId"/>
+		<result column="r_topic" property="rTopic"/>
+		<result column="r_contents" property="rContents"/>
+		<result column="r_publish_time" property="rPublishTime"/>
+		<result column="r_modify_time" property="rModifyTime"/>
+	</resultMap>
+
+</mapper>

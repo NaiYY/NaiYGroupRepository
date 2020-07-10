@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.IBbsTopicInfoDao">
+
+	<resultMap id="BbsTopicInfoMap" type="com.pojo.BbsTopicInfo">
+		<id column="t_id" property="tId"/>
+		<result column="t_s_id" property="tSId"/>
+		<result column="t_u_id" property="tUId"/>
+		<result column="t_topic" property="tTopic"/>
+		<result column="t_contents" property="tContents"/>
+		<result column="t_reply_count" property="tReplyCount"/>
+		<result column="t_click_count" property="tClickCount"/>
+		<result column="t_publish_time" property="tPublishTime"/>
+		<result column="t_modify_time" property="tModifyTime"/>
+	</resultMap>
+
+</mapper>

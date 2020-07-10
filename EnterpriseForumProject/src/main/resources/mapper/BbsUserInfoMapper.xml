@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.IBbsUserInfoDao">
+
+	<resultMap id="BbsUserInfoMap" type="com.pojo.BbsUserInfo">
+		<id column="u_id" property="uId"/>
+		<result column="u_name" property="uName"/>
+		<result column="u_password" property="uPassword"/>
+		<result column="u_sex" property="uSex"/>
+		<result column="u_face" property="uFace"/>
+		<result column="u_reg_time" property="uRegTime"/>
+		<result column="u_type" property="uType"/>
+	</resultMap>
+
+</mapper>
