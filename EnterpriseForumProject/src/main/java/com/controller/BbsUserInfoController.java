@@ -12,45 +12,65 @@ import java.util.List;
 @Controller
 public class BbsUserInfoController {
 
-    //    @RequestMapping("/test.do")
-//    apublic String test(Model model){
-//        System.out.println("test");
-//        model.addAttribute("test","test");
-//        return "test";
-//    }
     @Autowired
     IBbsUserInfoService bbsUserInfoService;
 
-    @RequestMapping("/bbsUserShowAll.do")
-    public String showAllBbsUser(Model model) {
+
+    @RequestMapping("user/bbsUserSelect.do")
+    public String bbsUserSelect(Model model) {
         List<BbsUserInfo> bbsUserInfoList = bbsUserInfoService.list();
         model.addAttribute("bbsUserInfoList", bbsUserInfoList);
-        return "bbsUserShowAll";
+        return "user/bbsUserSelect";
     }
 
-    @RequestMapping("/bbsUserInsert.do")
+    @RequestMapping("user/bbsUserInsert.do")
     public String bbsUserInsert(BbsUserInfo userInfo, Model model) {
+        String performingFunction = "bbsUserInsert";
         boolean flag = bbsUserInfoService.save(userInfo);
+        model.addAttribute("performingFunction", performingFunction);
         model.addAttribute("user", userInfo);
-        model.addAttribute("bbsUserInsert", userInfo);
-        if (flag) {
-            return "bbsUserSuccessfulExecution";
+        return "user/bbsUserSuccessfulExecution";
+    }
+
+    @RequestMapping("user/bbsUserUpdate.do")
+    public String bbsUserUpdate(int uId, Model model) {
+        String performingFunction = "bbsUserUpdate";
+        BbsUserInfo userInfo = bbsUserInfoService.getById(uId);
+        model.addAttribute("performingFunction", performingFunction);
+        model.addAttribute("user", userInfo);
+        if (userInfo!=null) {
+            return "user/update";
         } else {
-            return "bbsUserError";
+            return "user/bbsUserError";
         }
     }
 
-    @RequestMapping("/bbsUserUpdate.do")
-    public String bbsUserUpdate(BbsUserInfo userInfo, Model model) {
-        bbsUserInfoService.getById(userInfo.getUId());
-        boolean flag = bbsUserInfoService.updateById(userInfo);
-        model.addAttribute("user", userInfo);
-        model.addAttribute("bbsUserUpdate", userInfo);
-        if (flag) {
-            return "bbsUserSuccessfulExecution";
+    @RequestMapping("user/update.do")
+    public String Update(BbsUserInfo userInfo, Model model) {
+        String performingFunction = "update";
+        BbsUserInfo update = bbsUserInfoService.getById(userInfo.getUId());
+        model.addAttribute("performingFunction", performingFunction);
+        model.addAttribute("user", update);
+        if (update!=null) {
+            bbsUserInfoService.updateById(userInfo);
+            return "user/bbsUserSuccessfulExecution";
         } else {
-            return "bbsUserError";
+            return "user/bbsUserError";
         }
     }
 
+
+    @RequestMapping("user/bbsUserDelete.do")
+    public String bbsUserDelete(int uId, Model model) {
+        String performingFunction = "bbsUserDelete";
+        BbsUserInfo userInfo = bbsUserInfoService.getById(uId);
+        model.addAttribute("performingFunction", performingFunction);
+        model.addAttribute("user", userInfo);
+        if (userInfo!=null) {
+            bbsUserInfoService.removeById(uId);
+            return "user/bbsUserSuccessfulExecution";
+        } else {
+            return "user/bbsUserError";
+        }
+    }
 }

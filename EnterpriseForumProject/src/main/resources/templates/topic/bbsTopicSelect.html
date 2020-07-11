@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>查询所有论坛用户</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>帖子编号</td>
+        <td>所属板块编号</td>
+        <td>发帖用户编号</td>
+        <td>帖子标题</td>
+        <td>帖子内容</td>
+        <td>回复数量</td>
+        <td>点击数量</td>
+        <td>发帖时间</td>
+        <td>修改时间</td>
+    </tr>
+
+    <tr th:each="topicInfo,userStart:${bbsTopicInfoList}">
+        <td th:text="${topicInfo.getTId()}"></td>
+        <td th:text="${topicInfo.getTSId}"></td>
+        <td th:text="${topicInfo.getTUId()}"></td>
+        <td th:text="${topicInfo.getTTopic()}"></td>
+        <td th:text="${topicInfo.getTContents()}"></td>
+        <td th:text="${topicInfo.getTReplyCount()}"></td>
+        <td th:text="${topicInfo.getTClickCount()}"></td>
+        <td th:text="${topicInfo.getTPublishTime()}"></td>
+        <td th:text="${topicInfo.getTModifyTime()}"></td>
+        <td><a th:href="@{'bbsUserDelete.do?uId='+${topicInfo.getTId()}}">删除</a> ||
+            <a th:href="@{'bbsUserUpdate.do?uId='+${topicInfo.getTId()}}">修改</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

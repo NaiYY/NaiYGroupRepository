@@ -55,4 +55,14 @@ public class BbsSectionInfo {
         this.sParentId = sParentId;
     }
 
+    @Override
+    public String toString() {
+        return "BbsSectionInfo{" +
+                "sId=" + sId +
+                ", sName='" + sName + '\'' +
+                ", sTopicCount=" + sTopicCount +
+                ", sMasterId=" + sMasterId +
+                ", sParentId=" + sParentId +
+                '}';
+    }
 }

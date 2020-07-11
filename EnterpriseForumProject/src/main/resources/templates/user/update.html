@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>修改用户</title>
+</head>
+<body>
+
+<form action="/update.do" method="post">
+    <input type="hidden" name="uId" th:value="${user.getUId()}">
+    <table border="1">
+        <tr>
+            <td>用户名</td>
+            <td><input type="text" name="uName" th:value="${user.getUName()}"></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="password" name="uPassword" th:value="${user.getUPassword()}"></td>
+        </tr>
+        <tr>
+            <td>用户性别</td>
+            <td><input type="text" name="uSex" th:value="${user.getUSex()}"></td>
+        </tr>
+        <tr>
+            <td>用户头像路径</td>
+            <td><input type="text" name="uFace" th:value="${user.getUFace()}"></td>
+        </tr>
+        <tr>
+            <td>用户注册时间</td>
+            <td><input type="date" name="uRegTime" th:value="${user.getURegTime()}"></td>
+        </tr>
+        <tr>
+            <td>用户类型</td>
+            <td><input type="text" name="uType" th:value="${user.getUType()}"></td>
+        </tr>
+        <tr><td colspan="2"><input type="submit" value="增加"></td></tr>
+    </table>
+
+</form>
+</table>
+<a href="index.html">返回首页</a>
+</body>
+</html>
