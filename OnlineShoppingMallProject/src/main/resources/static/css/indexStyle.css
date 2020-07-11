@@ -1,0 +1,146 @@
+#frame {
+	/* border: 1px solid red; */
+	width: auto;
+	height: 735px;
+}
+
+#top {
+	width: 1200px;
+	height: 80px;
+	margin: auto;
+	/* border: 1px solid red; */
+}
+
+#menu {
+	list-style-type: none;
+	float: left;
+	display: block;
+	width: 1190px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#menu_sub {
+	display: inline;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 50px;
+	padding-left: 50px;
+}
+
+#content {
+	width: 1200px;
+	height: auto;
+	margin: auto;
+	/* border: 1px solid red; */
+	margin-top: 20px;
+}
+
+#left {
+	height: auto;
+	width: 196px;
+	/* border: 1px solid red; */
+	float: left;
+}
+
+#middle {
+	height: auto;
+	width: 800px;
+	/* border: 1px solid red; */
+	float: left;
+	margin-top: 25px;
+}
+
+#right {
+	height: auto;
+	width: 198px;
+	/* border: 1px solid red; */
+	float: left;
+	margin-top: 120px;
+}
+
+.title_box {
+	width: 150px;
+	height: 30px;
+	margin: 5px 0 0 0;
+	background: url(../img/menu_title_bg.gif) no-repeat center;
+	text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+	color: #fff;
+	line-height: 30px;
+}
+
+.left_menu {
+	width: 150px;
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+left_menu li {
+	margin: 0px;
+	list-style: none;
+}
+
+.odd a {
+	width: 120px;
+	height: 25px;
+	display: block;
+	background: url(../img/checked.png) no-repeat left #dad0d0;
+	background-position: 5px 5px;
+	border-bottom: 1px #FFFFFF solid;
+	color: #504b4b;
+	padding: 0 0 0 30px;
+	line-height: 25px;
+}
+
+.even a {
+	width: 120px;
+	height: 25px;
+	display: block;
+	background: url(../img/checked.png) no-repeat left #eee6e6;
+	background-position: 5px 5px;
+	border-bottom: 1px #FFFFFF solid;
+	color: #504b4b;
+	padding: 0 0 0 30px;
+	line-height: 25px;
+}
+
+#products {
+	width: 200px;
+	height: 220px;
+	float: left;
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+#products_title {
+	width: auto;
+	height: 28px;
+}
+
+#products_img {
+	width: auto;
+	height: 120px;
+}
+
+#products_price {
+	width: auto;
+	height: 30px;
+}
+
+#products_info {}
+
+.input {
+	border: 0px;
+	border-bottom: 1px solid black;
+	outline: medium;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+}
