@@ -62,6 +62,7 @@ public class OtherController {
 
         MallUser user = iMallUserService.getOne(userWrapper);
 
+        // 基本信息
         if ("info".equals(type)) {
             // 根据商品类型ID 获取当前的 商品类型名称
             QueryWrapper<MallCommodityClass> clazzWrapper = new QueryWrapper<>();
@@ -77,6 +78,7 @@ public class OtherController {
             model.addAttribute("commodities", commodities);
         }
 
+        // 商品信息
         if ("commInfo".equals(type)) {
             QueryWrapper<MallCommodity> commWrapper = new QueryWrapper<>();
             commWrapper.lambda().eq(MallCommodity::getCommodityId, commId);
@@ -86,6 +88,7 @@ public class OtherController {
             model.addAttribute("commodity", commodity);
         }
 
+        // 购物车新增
         if ("cardAdd".equals(type)) {
             HttpSession session = request.getSession();
 
@@ -116,12 +119,14 @@ public class OtherController {
             }
         }
 
+        // 查看购物车
         if ("myCart".equals(type)) {
             HttpSession session = request.getSession();
             LinkedList<MallCart> carts = (LinkedList<MallCart>) session.getAttribute(currName + "Card");
             model.addAttribute("cards", carts);
         }
 
+        // 移除购物车
         if ("delCart".equals(type)) {
             HttpSession session = request.getSession();
             LinkedList<MallCart> carts = (LinkedList<MallCart>) session.getAttribute(currName + "Card");
@@ -133,6 +138,7 @@ public class OtherController {
             }
         }
 
+        // 结算
         if ("settlement".equals(type)) {
             HttpSession session = request.getSession();
 
@@ -184,6 +190,11 @@ public class OtherController {
                 iMallOrderListService.save(orderList);
             }
             carts.removeAll(carts);
+        }
+
+        // 查看订单
+        if ("".equals(type)) {
+            // 待写
         }
 
         model.addAttribute("userInfo", user);
