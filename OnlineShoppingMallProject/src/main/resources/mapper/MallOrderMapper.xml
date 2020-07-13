@@ -2,17 +2,105 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dao.IMallOrderDao">
 
-	<resultMap id="MallOrderMap" type="com.pojo.MallOrder">
-		<id column="order_id" property="orderId"/>
-		<result column="order_no" property="orderNo"/>
-		<result column="user_id" property="userId"/>
-		<result column="order_submit_time" property="orderSubmitTime"/>
-		<result column="order_consignment_time" property="orderConsignmentTime"/>
-		<result column="order_total_price" property="orderTotalPrice"/>
-		<result column="order_remark" property="orderRemark"/>
-		<result column="order_ip_address" property="orderIpAddress"/>
-		<result column="order_is_payoff" property="orderIsPayoff"/>
-		<result column="order_is_consignment" property="orderIsConsignment"/>
-	</resultMap>
+    <resultMap id="MallOrderMap" type="com.pojo.MallOrder">
+        <id column="order_id" property="orderId"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="order_submit_time" property="orderSubmitTime"/>
+        <result column="order_consignment_time" property="orderConsignmentTime"/>
+        <result column="order_total_price" property="orderTotalPrice"/>
+        <result column="order_remark" property="orderRemark"/>
+        <result column="order_ip_address" property="orderIpAddress"/>
+        <result column="order_is_payoff" property="orderIsPayoff"/>
+        <result column="order_is_consignment" property="orderIsConsignment"/>
+        <association column="user_id" property="user" javaType="com.pojo.MallUser">
+            <id column="user_id" property="userId"/>
+            <result column="user_name" property="userName"/>
+            <result column="user_password" property="userPassword"/>
+            <result column="user_real_name" property="userRealName"/>
+            <result column="user_sex" property="userSex"/>
+            <result column="user_address" property="userAddress"/>
+            <result column="user_phone" property="userPhone"/>
+            <result column="user_post" property="userPost"/>
+            <result column="user_email" property="userEmail"/>
+            <result column="user_reg_time" property="userRegTime"/>
+            <result column="user_reg_ip_address" property="userRegIpAddress"/>
+        </association>
+    </resultMap>
+
+    <select id="queryOrderPage" resultMap="MallOrderMap">
+		select o.*,u.user_name
+        from mall_order o,mall_user u
+        where o.user_id = u.user_id
+	</select>
+
+    <select id="queryOrderById" parameterType="java.lang.String" resultMap="MallOrderMap">
+		select o.*,u.user_name
+        from mall_order o,mall_user u
+        where o.user_id = u.user_id and
+        order_no = #{no}
+	</select>
+
+    <insert id="addOrder" parameterType="com.pojo.MallUser">
+        insert into mall_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderNo != null">
+                order_no,
+            </if>
+            <if test="orderSubmitTime != null">
+                order_submit_time,
+            </if>
+            <if test="orderConsignmentTime != null">
+                order_consignment_time,
+            </if>
+            <if test="orderTotalPrice != null">
+                order_total_price,
+            </if>
+            <if test="orderRemark != null">
+                order_remark,
+            </if>
+            <if test="orderIpAddress != null">
+                order_ip_address,
+            </if>
+            <if test="orderIsPayoff != null">
+                order_is_payoff,
+            </if>
+            <if test="orderIsConsignment != null">
+                order_is_consignment,
+            </if>
+            <if test="user != null">
+                user_id,
+            </if>
+        </trim>
+
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderNo != null">
+                #{orderNo},
+            </if>
+            <if test="orderSubmitTime != null">
+                #{orderSubmitTime},
+            </if>
+            <if test="orderConsignmentTime != null">
+                #{orderConsignmentTime},
+            </if>
+            <if test="orderTotalPrice != null">
+                #{orderTotalPrice},
+            </if>
+            <if test="orderRemark != null">
+                #{orderRemark},
+            </if>
+            <if test="orderIpAddress != null">
+                #{orderIpAddress},
+            </if>
+            <if test="orderIsPayoff != null">
+                #{orderIsPayoff},
+            </if>
+            <if test="orderIsConsignment != null">
+                #{orderIsConsignment},
+            </if>
+            <if test="user != null">
+                #{user.userId},
+            </if>
+        </trim>
+    </insert>
 
 </mapper>

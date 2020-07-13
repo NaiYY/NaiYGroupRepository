@@ -8,4 +8,10 @@
 		<result column="admin_password" property="adminPassword"/>
 	</resultMap>
 
+	<update id="updatePassword" parameterType="com.pojo.MallAdmin">
+		update mall_admin
+		set admin_password = #{adminPassword}
+		where admin_id = #{adminId}
+	</update>
+
 </mapper>

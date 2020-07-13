@@ -70,9 +70,7 @@ public class OtherController {
             MallCommodityClass clazz = iMallCommodityClassService.getOne(clazzWrapper);
 
             // 根据商品类型ID 获取对应的商品
-            QueryWrapper<MallCommodity> commodityWrapper = new QueryWrapper<>();
-            commodityWrapper.lambda().eq(MallCommodity::getCommodityClassId, clazzId);
-            List<MallCommodity> commodities = iMallCommodityService.list(commodityWrapper);
+            List<MallCommodity> commodities = iMallCommodityService.queryCommByClazzId(clazzId);
 
             model.addAttribute("clazzName", clazz.getCommodityClassName());
             model.addAttribute("commodities", commodities);
@@ -80,12 +78,8 @@ public class OtherController {
 
         // 商品信息
         if ("commInfo".equals(type)) {
-            QueryWrapper<MallCommodity> commWrapper = new QueryWrapper<>();
-            commWrapper.lambda().eq(MallCommodity::getCommodityId, commId);
-
-            MallCommodity commodity = iMallCommodityService.getOne(commWrapper);
-
-            model.addAttribute("commodity", commodity);
+            MallCommodity comm = iMallCommodityService.queryCommById(commId);
+            model.addAttribute("commodity", comm);
         }
 
         // 购物车新增
@@ -93,10 +87,7 @@ public class OtherController {
             HttpSession session = request.getSession();
 
             // 根据商品ID获取商品
-            QueryWrapper<MallCommodity> commWrapper = new QueryWrapper<>();
-            commWrapper.lambda().eq(MallCommodity::getCommodityId, commId);
-
-            MallCommodity comm = iMallCommodityService.getOne(commWrapper);
+            MallCommodity comm = iMallCommodityService.queryCommById(commId);
 
             LinkedList<MallCart> carts = (LinkedList<MallCart>) session.getAttribute(currName + "Card");
 
@@ -155,9 +146,9 @@ public class OtherController {
                 totalPrice += cart.getCommodityNum() * cart.getCommodity().getCommodityFcPrice();
 
                 // 将商品数量减去相对应数量 和 移除对应的购物车
-                MallCommodity oldComm = iMallCommodityService.getById(commodityId);
+                MallCommodity oldComm = iMallCommodityService.queryCommById(commodityId);
                 oldComm.setCommodityLeaveNum(oldComm.getCommodityLeaveNum() - cart.getCommodityNum());
-                iMallCommodityService.updateById(oldComm);
+                iMallCommodityService.updateNum(oldComm);
             }
 
             // 新增订单
@@ -165,7 +156,7 @@ public class OtherController {
 
             MallOrder order = new MallOrder();
             order.setOrderNo(no);
-            order.setUserId(userId);
+            order.setUser(iMallUserService.getById(userId));
             order.setOrderSubmitTime(new Timestamp(System.currentTimeMillis()));
             // 发货时间 是 当前时间基础上 加上2天
             order.setOrderConsignmentTime(new Timestamp(System.currentTimeMillis() + (60 * 60 * 24 * 2)));
@@ -174,12 +165,9 @@ public class OtherController {
             order.setOrderIsPayoff(0);
             order.setOrderIsConsignment(0);
 
-            iMallOrderService.save(order);
+            iMallOrderService.addOrder(order);
 
-            QueryWrapper<MallOrder> orderWrapper = new QueryWrapper<>();
-            orderWrapper.lambda().eq(MallOrder::getOrderNo, no);
-
-            MallOrder mallOrder = iMallOrderService.getOne(orderWrapper);
+            MallOrder mallOrder = iMallOrderService.queryOrderById(no);
 
             for (MallCart cart : carts) {
                 MallOrderList orderList = new MallOrderList();

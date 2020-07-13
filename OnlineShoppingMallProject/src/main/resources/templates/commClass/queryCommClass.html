@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>网路商城 - 商品类型查询</title>
+</head>
+<style>
+    a {
+        text-decoration: none;
+        color: black;
+    }
+</style>
+<body>
+<br>
+<table border="1" cellspacing="0" cellpadding="0" style="text-align: center;margin: auto">
+    <tr>
+        <td width="350">商品类型ID</td>
+        <td width="350">商品类型名称</td>
+        <td width="350">操作</td>
+    </tr>
+    <tr th:each="commClassTemp,commClassStart:${commClassList}">
+        <td th:text="${commClassTemp.getCommodityClassId() }"></td>
+        <td th:text="${commClassTemp.getCommodityClassName() }"></td>
+        <td>
+            <a th:href="@{'getUpdateCommClass.ny?id='+${commClassTemp.getCommodityClassId()}}">修改</a>
+            ||
+            <a th:href="@{'deleteCommClass.ny?id='+${commClassTemp.getCommodityClassId()}}">删除</a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <a th:href="@{'queryCommClass.ny?pn='+${pageInfo.getCurrent()-1}}" th:if="${pageInfo.getCurrent()>1}">上一页</a>
+            <a th:href="@{'queryCommClass.ny?pn='+${pageInfo.getCurrent()+1}}"
+               th:if="${pageInfo.getCurrent()<pageInfo.pages}">下一页</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

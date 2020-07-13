@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>网络商城 - 后台</title>
 </head>
-<script src="./js/jquery-3.4.1.min.js"></script>
+<script src="../js/jquery-3.4.1.min.js"></script>
 <style>
     ul {
         list-style: none;
@@ -39,7 +39,9 @@
             <h2 style="margin-left: 30px;">帆城购物系统后台管理</h2>
         </div>
         <div style="width: auto;height: 80px;">
-
+            <font style="margin-left: 1050px">
+                当前登录人：<font th:text="${adminInfo.getAdminUsername()}"/>
+            </font>
         </div>
     </div>
     <div id="bottom" style="width: auto;height: 666px;border: 1px solid red;">
@@ -48,33 +50,34 @@
                 <li>
                     <b id="1" onclick="displayUl(id)">商品分类列表</b>
                     <ul id="ul1">
-                        <li><a href="#" target="content">加入商品分类</a></li>
-                        <li><a href="#" target="content">查看商品分类</a></li>
+                        <li><a href="/mall/commClass/addCommClass.html" target="content">加入商品分类</a></li>
+                        <li><a href="../commClass/queryCommClass.ny" target="content">查看商品分类</a></li>
                     </ul>
                 </li>
                 <li>
                     <b id="2" onclick="displayUl(id)">商品列表</b>
                     <ul id="ul2">
-                        <li><a href="#" target="content">加入商品</a></li>
-                        <li><a href="#" target="content">查看商品</a></li>
+                        <li><a href="../comm/getCommClassList.ny" target="content">加入商品</a></li>
+                        <li><a href="../comm/queryComm.ny" target="content">查看商品</a></li>
                     </ul>
                 </li>
                 <li>
                     <b id="3" onclick="displayUl(id)">订单管理</b>
                     <ul id="ul3">
-                        <li><a href="#" target="content">查看订单</a></li>
+                        <li><a href="../order/queryOrder.ny" target="content">查看订单</a></li>
                     </ul>
                 </li>
                 <li>
                     <b id="4" onclick="displayUl(id)">用户管理</b>
                     <ul id="ul4">
-                        <li><a href="#" target="content">查看用户</a></li>
+                        <li><a href="../queryUser.ny" target="content">查看用户</a></li>
                     </ul>
                 </li>
                 <li>
                     <b id="5" onclick="displayUl(id)">系统管理</b>
                     <ul id="ul5">
-                        <li><a href="#" target="content">密码修改</a></li>
+                        <li><a th:href="@{'getUpdateUser.ny?id='+${adminInfo.getAdminId()}}"
+                               target="content">密码修改</a></li>
                     </ul>
                 </li>
             </ul>

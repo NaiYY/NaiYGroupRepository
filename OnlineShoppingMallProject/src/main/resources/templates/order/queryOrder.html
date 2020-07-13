@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>网路商城 - 商品类型查询</title>
+</head>
+<style>
+    a {
+        text-decoration: none;
+        color: black;
+    }
+</style>
+<body>
+<br>
+<table border="1" cellspacing="0" cellpadding="0" style="text-align: center;margin: auto">
+    <tr>
+        <td width="200">订单编号</td>
+        <td width="200">所属用户</td>
+        <td width="150">提交时间</td>
+        <td width="150">发货时间</td>
+        <td width="150">总价格</td>
+        <td width="100">备注</td>
+        <td width="100">是否付款</td>
+        <td width="100">是否发货</td>
+    </tr>
+    <tr th:each="orderTemp,orderStart:${orderList}">
+        <td th:text="${orderTemp.getOrderNo() }"></td>
+        <td th:text="${orderTemp.getUser().getUserName() }"></td>
+        <td th:text="${orderTemp.getOrderSubmitTime() }"></td>
+        <td th:text="${orderTemp.getOrderConsignmentTime() }"></td>
+        <td th:text="${orderTemp.getOrderTotalPrice() }"></td>
+        <td th:text="${orderTemp.getOrderRemark() }"></td>
+        <td th:text="${orderTemp.getOrderIsPayoff()==0?'否':'是' }"></td>
+        <td th:text="${orderTemp.getOrderIsConsignment()==0?'否':'是' }"></td>
+    </tr>
+    <tr>
+        <td colspan="8">
+            <a th:href="@{'queryOrder.ny?pn='+${pageInfo.getCurrent()-1}}" th:if="${pageInfo.getCurrent()>1}">上一页</a>
+            <a th:href="@{'queryOrder.ny?pn='+${pageInfo.getCurrent()+1}}"
+               th:if="${pageInfo.getCurrent()<pageInfo.pages}">下一页</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -7,97 +7,97 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.sql.Timestamp;
 
 @TableName("mall_order")
-public class MallOrder  {
-	@TableId(type = IdType.AUTO)
-	private Integer orderId;
-	private String orderNo;
-	private Integer userId;
-	private Timestamp orderSubmitTime;
-	private Timestamp orderConsignmentTime;
-	private Double orderTotalPrice;
-	private String orderRemark;
-	private String orderIpAddress;
-	private Integer orderIsPayoff;
-	private Integer orderIsConsignment;
+public class MallOrder {
+    @TableId(type = IdType.AUTO)
+    private Integer orderId;
+    private String orderNo;
+    private Timestamp orderSubmitTime;
+    private Timestamp orderConsignmentTime;
+    private Double orderTotalPrice;
+    private String orderRemark;
+    private String orderIpAddress;
+    private Integer orderIsPayoff;
+    private Integer orderIsConsignment;
 
-	public Integer getOrderId() {
-		return orderId;
-	}
+    private MallUser user;
 
-	public void setOrderId(Integer orderId) {
-		this.orderId = orderId;
-	}
+    public Integer getOrderId() {
+        return orderId;
+    }
 
-	public String getOrderNo() {
-		return orderNo;
-	}
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
 
-	public void setOrderNo(String orderNo) {
-		this.orderNo = orderNo;
-	}
+    public String getOrderNo() {
+        return orderNo;
+    }
 
-	public Integer getUserId() {
-		return userId;
-	}
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
+    public Timestamp getOrderSubmitTime() {
+        return orderSubmitTime;
+    }
 
-	public Timestamp getOrderSubmitTime() {
-		return orderSubmitTime;
-	}
+    public void setOrderSubmitTime(Timestamp orderSubmitTime) {
+        this.orderSubmitTime = orderSubmitTime;
+    }
 
-	public void setOrderSubmitTime(Timestamp orderSubmitTime) {
-		this.orderSubmitTime = orderSubmitTime;
-	}
+    public Timestamp getOrderConsignmentTime() {
+        return orderConsignmentTime;
+    }
 
-	public Timestamp getOrderConsignmentTime() {
-		return orderConsignmentTime;
-	}
+    public void setOrderConsignmentTime(Timestamp orderConsignmentTime) {
+        this.orderConsignmentTime = orderConsignmentTime;
+    }
 
-	public void setOrderConsignmentTime(Timestamp orderConsignmentTime) {
-		this.orderConsignmentTime = orderConsignmentTime;
-	}
+    public Double getOrderTotalPrice() {
+        return orderTotalPrice;
+    }
 
-	public Double getOrderTotalPrice() {
-		return orderTotalPrice;
-	}
+    public void setOrderTotalPrice(Double orderTotalPrice) {
+        this.orderTotalPrice = orderTotalPrice;
+    }
 
-	public void setOrderTotalPrice(Double orderTotalPrice) {
-		this.orderTotalPrice = orderTotalPrice;
-	}
+    public String getOrderRemark() {
+        return orderRemark;
+    }
 
-	public String getOrderRemark() {
-		return orderRemark;
-	}
+    public void setOrderRemark(String orderRemark) {
+        this.orderRemark = orderRemark;
+    }
 
-	public void setOrderRemark(String orderRemark) {
-		this.orderRemark = orderRemark;
-	}
+    public String getOrderIpAddress() {
+        return orderIpAddress;
+    }
 
-	public String getOrderIpAddress() {
-		return orderIpAddress;
-	}
+    public void setOrderIpAddress(String orderIpAddress) {
+        this.orderIpAddress = orderIpAddress;
+    }
 
-	public void setOrderIpAddress(String orderIpAddress) {
-		this.orderIpAddress = orderIpAddress;
-	}
+    public Integer getOrderIsPayoff() {
+        return orderIsPayoff;
+    }
 
-	public Integer getOrderIsPayoff() {
-		return orderIsPayoff;
-	}
+    public void setOrderIsPayoff(Integer orderIsPayoff) {
+        this.orderIsPayoff = orderIsPayoff;
+    }
 
-	public void setOrderIsPayoff(Integer orderIsPayoff) {
-		this.orderIsPayoff = orderIsPayoff;
-	}
+    public Integer getOrderIsConsignment() {
+        return orderIsConsignment;
+    }
 
-	public Integer getOrderIsConsignment() {
-		return orderIsConsignment;
-	}
+    public void setOrderIsConsignment(Integer orderIsConsignment) {
+        this.orderIsConsignment = orderIsConsignment;
+    }
 
-	public void setOrderIsConsignment(Integer orderIsConsignment) {
-		this.orderIsConsignment = orderIsConsignment;
-	}
+    public MallUser getUser() {
+        return user;
+    }
 
+    public void setUser(MallUser user) {
+        this.user = user;
+    }
 }

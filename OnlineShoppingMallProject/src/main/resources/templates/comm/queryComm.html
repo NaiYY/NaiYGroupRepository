@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>网路商城 - 商品类型查询</title>
+</head>
+<style>
+    a {
+        text-decoration: none;
+        color: black;
+    }
+</style>
+<body>
+<br>
+<table border="1" cellspacing="0" cellpadding="0" style="text-align: center;margin: auto">
+    <tr>
+        <td width="200">商品名称</td>
+        <td width="200">商品类型</td>
+        <td width="150">出厂商</td>
+        <td width="150">原价</td>
+        <td width="150">帆城商城价格</td>
+        <td width="100">总数量</td>
+        <td width="100">库存</td>
+        <td width="150">操作</td>
+    </tr>
+    <tr th:each="commTemp,commStart:${commList}">
+        <td th:text="${commTemp.getCommodityName() }"></td>
+        <td th:text="${commTemp.getCommodityClass().getCommodityClassName() }"></td>
+        <td th:text="${commTemp.getCommodityManuFacturer() }"></td>
+        <td th:text="${commTemp.getCommodityPrice() }"></td>
+        <td th:text="${commTemp.getCommodityFcPrice() }"></td>
+        <td th:text="${commTemp.getCommodityAmount() }"></td>
+        <td th:text="${commTemp.getCommodityLeaveNum() }"></td>
+        <td>
+            <a th:href="@{'getUpdateComm.ny?id='+${commTemp.getCommodityId()}}">修改</a>
+            ||
+            <a th:href="@{'deleteComm.ny?id='+${commTemp.getCommodityId()}}">删除</a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="8">
+            <a th:href="@{'queryComm.ny?pn='+${pageInfo.getCurrent()-1}}" th:if="${pageInfo.getCurrent()>1}">上一页</a>
+            <a th:href="@{'queryComm.ny?pn='+${pageInfo.getCurrent()+1}}"
+               th:if="${pageInfo.getCurrent()<pageInfo.pages}">下一页</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

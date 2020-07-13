@@ -2,18 +2,152 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dao.IMallCommodityDao">
 
-	<resultMap id="MallCommodityMap" type="com.pojo.MallCommodity">
-		<id column="commodity_id" property="commodityId"/>
-		<result column="commodity_name" property="commodityName"/>
-		<result column="commodity_class_id" property="commodityClassId"/>
-		<result column="commodity_manu_facturer" property="commodityManuFacturer"/>
-		<result column="commodity_depict" property="commodityDepict"/>
-		<result column="commodity_price" property="commodityPrice"/>
-		<result column="commodity_fc_price" property="commodityFcPrice"/>
-		<result column="commodity_amount" property="commodityAmount"/>
-		<result column="commodity_leave_num" property="commodityLeaveNum"/>
-		<result column="commodity_reg_time" property="commodityRegTime"/>
-		<result column="commodity_image" property="commodityImage"/>
-	</resultMap>
+    <resultMap id="MallCommodityMap" type="com.pojo.MallCommodity">
+        <id column="commodity_id" property="commodityId"/>
+        <result column="commodity_name" property="commodityName"/>
+        <result column="commodity_manu_facturer" property="commodityManuFacturer"/>
+        <result column="commodity_depict" property="commodityDepict"/>
+        <result column="commodity_price" property="commodityPrice"/>
+        <result column="commodity_fc_price" property="commodityFcPrice"/>
+        <result column="commodity_amount" property="commodityAmount"/>
+        <result column="commodity_leave_num" property="commodityLeaveNum"/>
+        <result column="commodity_reg_time" property="commodityRegTime"/>
+        <result column="commodity_image" property="commodityImage"/>
+        <association property="commodityClass" column="commodity_class_id" javaType="com.pojo.MallCommodityClass">
+            <id column="commodity_class_id" property="commodityClassId"/>
+            <result column="commodity_class_name" property="commodityClassName"/>
+        </association>
+    </resultMap>
 
+    <select id="queryCommPage" resultMap="MallCommodityMap">
+		select comm.*,clazz.commodity_class_name
+		from mall_commodity comm,mall_commodity_class clazz
+		where comm.commodity_class_id = clazz.commodity_class_id
+	</select>
+
+    <select id="queryCommByClazzId" parameterType="int" resultMap="MallCommodityMap">
+		select comm.*,clazz.commodity_class_name
+		from mall_commodity comm,mall_commodity_class clazz
+		where comm.commodity_class_id = clazz.commodity_class_id and
+		clazz.commodity_class_id = #{id}
+	</select>
+
+    <select id="queryCommById" parameterType="int" resultMap="MallCommodityMap">
+		select comm.*,clazz.commodity_class_name
+		from mall_commodity comm,mall_commodity_class clazz
+		where comm.commodity_class_id = clazz.commodity_class_id and
+		comm.commodity_id = #{id}
+	</select>
+
+    <update id="updateNum" parameterType="com.pojo.MallCommodity">
+        update mall_commodity
+        set commodity_leave_num = #{commodityLeaveNum}
+        where commodity_id = #{commodityId}
+    </update>
+
+    <insert id="addCommodity" parameterType="com.pojo.MallCommodity">
+        insert into mall_commodity
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="commodityName != null">
+                commodity_name,
+            </if>
+            <if test="commodityClass != null">
+                commodity_class_id,
+            </if>
+            <if test="commodityManuFacturer != null">
+                commodity_manu_facturer,
+            </if>
+            <if test="commodityDepict != null">
+                commodity_depict,
+            </if>
+            <if test="commodityPrice != null">
+                commodity_price,
+            </if>
+            <if test="commodityFcPrice != null">
+                commodity_fc_price,
+            </if>
+            <if test="commodityAmount != null">
+                commodity_amount,
+            </if>
+            <if test="commodityLeaveNum != null">
+                commodity_leave_num,
+            </if>
+            <if test="commodityRegTime != null">
+                commodity_reg_time,
+            </if>
+            <if test="commodityImage != null">
+                commodity_image,
+            </if>
+        </trim>
+
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="commodityName != null">
+                #{commodityName},
+            </if>
+            <if test="commodityClass != null">
+                #{commodityClass.commodityClassId},
+            </if>
+            <if test="commodityManuFacturer != null">
+                #{commodityManuFacturer},
+            </if>
+            <if test="commodityDepict != null">
+                #{commodityDepict},
+            </if>
+            <if test="commodityPrice != null">
+                #{commodityPrice},
+            </if>
+            <if test="commodityFcPrice != null">
+                #{commodityFcPrice},
+            </if>
+            <if test="commodityAmount != null">
+                #{commodityAmount},
+            </if>
+            <if test="commodityLeaveNum != null">
+                #{commodityLeaveNum},
+            </if>
+            <if test="commodityRegTime != null">
+                #{commodityRegTime},
+            </if>
+            <if test="commodityImage != null">
+                #{commodityImage},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateCommodity" parameterType="com.pojo.MallCommodity">
+        update mall_commodity
+        <set>
+            <if test="commodityName != null">
+                commodity_name = #{commodityName},
+            </if>
+            <if test="commodityClass != null">
+                commodity_class_id = #{commodityClass.commodityClassId},
+            </if>
+            <if test="commodityManuFacturer != null">
+                commodity_manu_facturer = #{commodityManuFacturer},
+            </if>
+            <if test="commodityDepict != null">
+                commodity_depict = #{commodityDepict},
+            </if>
+            <if test="commodityPrice != null">
+                commodity_price = #{commodityPrice},
+            </if>
+            <if test="commodityFcPrice != null">
+                commodity_fc_price = #{commodityFcPrice},
+            </if>
+            <if test="commodityAmount != null">
+                commodity_amount = #{commodityAmount},
+            </if>
+            <if test="commodityLeaveNum != null">
+                commodity_leave_num = #{commodityLeaveNum},
+            </if>
+            <if test="commodityRegTime != null">
+                commodity_reg_time = #{commodityRegTime},
+            </if>
+            <if test="commodityImage != null">
+                commodity_image = #{commodityImage},
+            </if>
+        </set>
+        where commodity_id = #{commodityId}
+    </update>
 </mapper>

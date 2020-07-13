@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>网路商城 - 商品修改</title>
+</head>
+<body>
+<table border="1" cellspacing="0" cellpadding="0" style="text-align: center;margin: auto">
+    <form action="../comm/updateComm.ny" method="post">
+        <input type="hidden" id="commodityId" name="commodityId"
+               th:value="${comm.getCommodityId()}">
+        <tr height="30">
+            <td width="350" align="right">商品名称：</td>
+            <td width="350" align="left">
+                <input type="text" th:value="${comm.getCommodityName()}" id="commodityName" name="commodityName"
+                       style="margin-left: 20px">
+            </td>
+        </tr>
+        <tr height="30">
+            <td width="350" align="right">商品类型名称：</td>
+            <td width="350" align="left">
+                <select id="clazzName" name="clazzName" style="margin-left: 20px">
+                    <option th:each="clazz,clazzStart:${classList}"
+                            th:text="${clazz.getCommodityClassName()}">
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr height="30">
+            <td width="350" align="right">出厂商：</td>
+            <td width="350" align="left">
+                <input type="text" th:value="${comm.getCommodityManuFacturer()}" id="commodityManuFacturer"
+                       name="commodityManuFacturer" style="margin-left: 20px">
+            </td>
+        </tr>
+        <tr height="180">
+            <td width="350" align="right">描述：</td>
+            <td width="350" align="left"><textarea th:text="${comm.getCommodityDepict()}" rows="10" cols="30"
+                                                   id="commodityDepict" name="commodityDepict"
+                                                   style="margin-left: 20px"></textarea></td>
+        </tr>
+        <tr height="30">
+            <td width="350" align="right">原价：</td>
+            <td width="350" align="left">
+                <input type="text" th:value="${comm.getCommodityPrice()}" id="commodityPrice" name="commodityPrice"
+                       style="margin-left: 20px">
+            </td>
+        </tr>
+        <tr height="30">
+            <td width="350" align="right">帆城商城价格：</td>
+            <td width="350" align="left">
+                <input type="text" th:value="${comm.getCommodityFcPrice()}" id="commodityFcPrice"
+                       name="commodityFcPrice" style="margin-left: 20px">
+            </td>
+        </tr>
+        <tr height="30">
+            <td width="350" align="right">总数量：</td>
+            <td width="350" align="left">
+                <input type="text" th:value="${comm.getCommodityAmount()}" id="commodityAmount" name="commodityAmount"
+                       style="margin-left: 20px">
+            </td>
+        </tr>
+        <tr height="30">
+            <td width="350" align="right">库存：</td>
+            <td width="350" align="left">
+                <input type="text" th:value="${comm.getCommodityLeaveNum()}" id="commodityLeaveNum"
+                       name="commodityLeaveNum" style="margin-left: 20px">
+            </td>
+        </tr>
+        <tr>
+            <td width="700" colspan="2" height="30">
+                <input type="submit" value="修改">
+            </td>
+        </tr>
+    </form>
+</table>
+</body>
+</html>

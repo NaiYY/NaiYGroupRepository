@@ -1,13 +1,16 @@
 package com.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.pojo.MallCart;
 import com.pojo.MallUser;
 import com.service.IMallUserService;
 import com.tools.Tools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -54,5 +57,15 @@ public class MallUserController {
         }
     }
 
+    @RequestMapping("/queryUser.ny")
+    public String queryUser(Model model,
+                            @RequestParam(required = false, defaultValue = "1", value = "pn") Integer pn) {
 
+        IPage<MallUser> userIPage = iMallUserService.selectByPage(pn, 5);
+
+        model.addAttribute("userList", userIPage.getRecords());
+        model.addAttribute("pageInfo", userIPage);
+
+        return "user/queryUser";
+    }
 }

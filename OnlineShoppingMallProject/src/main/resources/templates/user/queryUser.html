@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>网路商城 - 商品类型查询</title>
+</head>
+<style>
+    a {
+        text-decoration: none;
+        color: black;
+    }
+</style>
+<body>
+<br>
+<table border="1" cellspacing="0" cellpadding="0" style="text-align: center;margin: auto">
+    <tr>
+        <td width="100">用户名</td>
+        <td width="100">姓名</td>
+        <td width="100">性别</td>
+        <td width="200">地址</td>
+        <td width="200">手机号</td>
+        <td width="100">邮编</td>
+        <td width="200">邮箱</td>
+    </tr>
+    <tr th:each="userTemp,userStart:${userList}">
+        <td th:text="${userTemp.getUserName() }"></td>
+        <td th:text="${userTemp.getUserRealName() }"></td>
+        <td th:text="${userTemp.getUserSex() }"></td>
+        <td th:text="${userTemp.getUserAddress()}"></td>
+        <td th:text="${userTemp.getUserPhone() }"></td>
+        <td th:text="${userTemp.getUserPost() }"></td>
+        <td th:text="${userTemp.getUserEmail() }"></td>
+    </tr>
+    <tr>
+        <td colspan="7">
+            <a th:href="@{'queryUser.ny?pn='+${pageInfo.getCurrent()-1}}" th:if="${pageInfo.getCurrent()>1}">上一页</a>
+            <a th:href="@{'queryUser.ny?pn='+${pageInfo.getCurrent()+1}}"
+               th:if="${pageInfo.getCurrent()<pageInfo.pages}">下一页</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

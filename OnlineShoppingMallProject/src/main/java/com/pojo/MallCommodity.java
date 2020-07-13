@@ -11,7 +11,6 @@ public class MallCommodity {
     @TableId(type = IdType.AUTO)
     private Integer commodityId;
     private String commodityName;
-    private Integer commodityClassId;
     private String commodityManuFacturer;
     private String commodityDepict;
     private Double commodityPrice;
@@ -20,6 +19,8 @@ public class MallCommodity {
     private Integer commodityLeaveNum;
     private Timestamp commodityRegTime;
     private String commodityImage;
+
+    private MallCommodityClass commodityClass;
 
     public Integer getCommodityId() {
         return commodityId;
@@ -35,14 +36,6 @@ public class MallCommodity {
 
     public void setCommodityName(String commodityName) {
         this.commodityName = commodityName;
-    }
-
-    public Integer getCommodityClassId() {
-        return commodityClassId;
-    }
-
-    public void setCommodityClassId(Integer commodityClassId) {
-        this.commodityClassId = commodityClassId;
     }
 
     public String getCommodityManuFacturer() {
@@ -109,4 +102,11 @@ public class MallCommodity {
         this.commodityImage = commodityImage;
     }
 
+    public MallCommodityClass getCommodityClass() {
+        return commodityClass;
+    }
+
+    public void setCommodityClass(MallCommodityClass commodityClass) {
+        this.commodityClass = commodityClass;
+    }
 }

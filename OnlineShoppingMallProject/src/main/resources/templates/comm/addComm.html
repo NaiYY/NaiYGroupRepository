@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" cellspacing="0" cellpadding="0" style="text-align: center;margin: auto">
+    <form action="../comm/addComm.ny" method="post" enctype="multipart/form-data">
+        <tr height="30">
+            <td width="350" align="right">商品名称：</td>
+            <td width="350" align="left">
+                <input type="text" id="commodityName" name="commodityName" style="margin-left: 20px">
+            </td>
+        </tr>
+        <tr height="30">
+            <td width="350" align="right">商品类型名称：</td>
+            <td width="350" align="left">
+                <select id="clazzName" name="clazzName" style="margin-left: 20px">
+                    <option th:each="clazz,clazzStart:${classList}"
+                            th:text="${clazz.getCommodityClassName()}">
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr height="30">
+            <td width="350" align="right">出厂商：</td>
+            <td width="350" align="left">
+                <input type="text" id="commodityManuFacturer" name="commodityManuFacturer" style="margin-left: 20px">
+            </td>
+        </tr>
+        <tr height="180">
+            <td width="350" align="right">描述：</td>
+            <td width="350" align="left"><textarea rows="10" cols="30" id="commodityDepict" name="commodityDepict"
+                                                   style="margin-left: 20px"></textarea></td>
+        </tr>
+        <tr height="30">
+            <td width="350" align="right">商品图片：</td>
+            <td width="350" align="left">
+                <input type="file" name="imgUp" style="margin-left: 20px">
+            </td>
+        </tr>
+        <tr height="30">
+            <td width="350" align="right">原价：</td>
+            <td width="350" align="left">
+                <input type="text" id="commodityPrice" name="commodityPrice" style="margin-left: 20px">
+            </td>
+        </tr>
+        <tr height="30">
+            <td width="350" align="right">帆城商城价格：</td>
+            <td width="350" align="left">
+                <input type="text" id="commodityFcPrice" name="commodityFcPrice" style="margin-left: 20px">
+            </td>
+        </tr>
+        <tr height="30">
+            <td width="350" align="right">总数量：</td>
+            <td width="350" align="left">
+                <input type="text" id="commodityAmount" name="commodityAmount" style="margin-left: 20px">
+            </td>
+        </tr>
+        <tr height="30">
+            <td width="350" align="right">库存：</td>
+            <td width="350" align="left">
+                <input type="text" id="commodityLeaveNum" name="commodityLeaveNum" style="margin-left: 20px">
+            </td>
+        </tr>
+        <tr>
+            <td width="700" colspan="2" height="30">
+                <input type="submit" value="添加">
+            </td>
+        </tr>
+    </form>
+</table>
+</body>
+</html>

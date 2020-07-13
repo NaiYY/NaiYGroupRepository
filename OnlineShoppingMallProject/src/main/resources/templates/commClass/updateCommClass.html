@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>网路商城 - 商品类型修改</title>
+</head>
+<body>
+<table border="1" cellspacing="0" cellpadding="0" style="text-align: center;margin: auto">
+    <form action="../commClass/updateCommClass.ny" method="post">
+        <input type="hidden" id="commodityClassId" name="commodityClassId"
+               th:value="${commClass.getCommodityClassId()}">
+        <tr height="30">
+            <td width="350" align="right">商品类型名称：</td>
+            <td width="350" align="left">
+                <input type="text" th:value="${commClass.getCommodityClassName()}" id="commodityClassName"
+                       name="commodityClassName" style="margin-left: 20px">
+            </td>
+        </tr>
+        <tr>
+            <td width="700" colspan="2" height="30">
+                <input type="submit" value="修改">
+            </td>
+        </tr>
+    </form>
+</table>
+</body>
+</html>
