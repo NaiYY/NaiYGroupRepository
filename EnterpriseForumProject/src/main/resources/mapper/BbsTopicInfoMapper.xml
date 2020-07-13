@@ -3,7 +3,7 @@
 <mapper namespace="com.dao.IBbsTopicInfoDao">
 
 	<resultMap id="BbsTopicInfoMap" type="com.pojo.BbsTopicInfo">
-		<id column="t_id" property="tId"/>
+		<result column="t_id" property="tId"/>
 		<result column="t_s_id" property="tSId"/>
 		<result column="t_u_id" property="tUId"/>
 		<result column="t_topic" property="tTopic"/>

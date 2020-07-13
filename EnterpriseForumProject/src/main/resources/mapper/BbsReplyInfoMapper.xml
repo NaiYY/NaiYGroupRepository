@@ -3,7 +3,7 @@
 <mapper namespace="com.dao.IBbsReplyInfoDao">
 
 	<resultMap id="BbsReplyInfoMap" type="com.pojo.BbsReplyInfo">
-		<id column="r_id" property="rId"/>
+		<result column="r_id" property="rId"/>
 		<result column="r_t_id" property="rTId"/>
 		<result column="r_s_id" property="rSId"/>
 		<result column="r_u_id" property="rUId"/>

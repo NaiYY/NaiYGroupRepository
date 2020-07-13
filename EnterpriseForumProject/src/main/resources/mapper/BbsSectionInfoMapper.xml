@@ -3,7 +3,7 @@
 <mapper namespace="com.dao.IBbsSectionInfoDao">
 
 	<resultMap id="BbsSectionInfoMap" type="com.pojo.BbsSectionInfo">
-		<id column="s_id" property="sId"/>
+		<result column="s_id" property="sId"/>
 		<result column="s_name" property="sName"/>
 		<result column="s_topic_count" property="sTopicCount"/>
 		<result column="s_master_id" property="sMasterId"/>
