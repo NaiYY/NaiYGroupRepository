@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: root
+    password: admin123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/kc_database?serverTimezone=UTC
+  mvc:
+    servlet:
+      path: /mall
+    static-path-pattern: /static/**
+  thymeleaf:
+    cache: false
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml

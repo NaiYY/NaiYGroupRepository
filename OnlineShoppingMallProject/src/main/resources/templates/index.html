@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>网络商城 - 首页</title>
+</head>
+<link rel="stylesheet" type="text/css" href="css/indexStyle.css"/>
+<body>
+<div id="frame">
+    <div id="top">
+        <font th:if="${userInfo==null}">
+            亲,请<a href="login.html">登录</a>
+        </font>
+        <font th:if="${userInfo!=null}">
+            亲爱的用户<font th:text="${userInfo.getUserName()}"></font>
+        </font>
+        <br>
+        <br>
+        <ul id="menu">
+            <li id="menu_sub">
+                <a href="#">
+                    <img src="img/home.png" width="18" height="18">&nbsp;首页
+                </a>
+            </li>
+            <li id="menu_sub">
+                <a href="init.ny?type=info">
+                    <img src="img/pag_bg_a.png" width="18" height="18">&nbsp;在线购物
+                </a>
+            </li>
+            <li id="menu_sub">
+                <a href="init.ny?type=myCart">
+                    <img src="img/shoppingcart.png" width="18" height="18">&nbsp;我的购物车
+                </a>
+            </li>
+            <li id="menu_sub">
+                <a href="init.ny?type=userInfo">
+                    <img src="img/user_add.png" width="18" height="18">&nbsp;用户信息
+                </a>
+            </li>
+            <li id="menu_sub">
+                <a href="login.html">
+                    <img src="img/favs.png" width="18" height="18">&nbsp;用户登录
+                </a>
+            </li>
+            <li id="menu_sub">
+                <a href="#">
+                    <img src="img/contact-new.png" width="18" height="18">&nbsp;用户注册
+                </a>
+            </li>
+            <li id="menu_sub">
+                <a href="#">
+                    <img src="img/favorites.png" width="18" height="18">&nbsp;订单查看
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <div id="left">
+            <img src="img/navbullet.png">
+            <b>导航</b>
+            <br>
+
+            <div class="title_box">商品分类</div>
+            <ul class="left_menu">
+                <li th:class="${clazzStart.count%2==0?'even':'odd'}" th:each="clazzTemp,clazzStart:${classList}">
+                    <a th:href="@{'init.ny?clazzId='+${clazzTemp.getCommodityClassId()}}"
+                       th:text="${clazzTemp.getCommodityClassName()}"></a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="middle" th:if="${type.equals('info')}">
+            <img src="img/pag_bg.png" width="15" height="15">&nbsp;&nbsp;
+            <font th:text="${clazzName}"></font>
+            <hr>
+            <br>
+            <div id="products" th:each="comm,commoditieStart:${commodities}">
+                <div id="products_title" th:text="${comm.getCommodityName()}">
+                </div>
+                <div id="products_img">
+                    <img th:src="${comm.getCommodityImage()}" height="108"/>
+                </div>
+                <div id="products_price">
+                    <font style="text-decoration: line-through;" th:text="${comm.getCommodityPrice()}"></font>
+                    &nbsp;&nbsp;
+                    <font th:text="${comm.getCommodityFcPrice()}"></font>
+                </div>
+                <div id="products_info">
+                    <a th:href="@{'init.ny?commId='+${comm.getCommodityId()}+'&type=cardAdd'}" title="加入购物车"
+                       style="float: left;padding-top: 10px;">
+                        <img src="img/cart.gif" width="20" height="20">
+                    </a>
+                    <a th:href="@{'init.ny?commId='+${comm.getCommodityId()}+'&type=commInfo'}"
+                       title="查看详细" style="float: right;text-decoration: none;padding-top: 8px;">
+                        <img src="img/square-blue-add.gif" width="25" height="25" style="vertical-align:middle;">
+                        详细
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="middle" th:if="${type.equals('myCart')}">
+            <img src="img/pag_bg.png" width="15" height="15">&nbsp;&nbsp;
+            <font>我的购物车</font>
+            <hr>
+            <br>
+            <table border="1" cellpadding="0" cellspacing="0" style="text-align: center;margin: auto">
+                <tr>
+                    <td width="80"><b>商品编号</b></td>
+                    <td width="200"><b>商品名称</b></td>
+                    <td width="200"><b>生产厂商</b></td>
+                    <td width="100"><b>商品价格</b></td>
+                    <td width="80"><b>商品数量</b></td>
+                    <td width="50"><b>操作</b></td>
+                </tr>
+                <tr th:each="card,cardStart:${cards}">
+                    <td th:text="${card.getCommodity().getCommodityId()}"/>
+                    <td th:text="${card.getCommodity().getCommodityName()}"/>
+                    <td th:text="${card.getCommodity().getCommodityManuFacturer()}"/>
+                    <td th:text="${card.getCommodity().getCommodityFcPrice()}"/>
+                    <td th:text="${card.getCommodityNum()}"/>
+                    <td>
+                        <a th:href="@{'init.ny?commId='+${card.getCommodity().getCommodityId()}+'&type=delCart'}">
+                            移除
+                        </a>
+                    </td>
+                </tr>
+            </table><br>
+            <a href="init.ny?type=settlement">
+                <img src="img/cart.gif" width="15" height="15">&nbsp;&nbsp;
+                <font>结算</font>
+            </a>
+        </div>
+
+        <div id="middle" th:if="${type.equals('commInfo')}">
+            <img src="img/pag_bg.png" width="15" height="15">&nbsp;&nbsp;
+            <font th:text="${commodity.getCommodityName()}"/>
+            <hr>
+            <br>
+            <div style="width: auto;height: 210px;">
+                <div style="margin-right:50px;width:150px;height: 200px;float: left;text-align: center;">
+                    <img th:src="${commodity.getCommodityImage()}" height="125">
+                </div>
+                <div style="width:500px;height: 200px;float: left;">
+                    <div style="width: auto;height: 195px">
+                        <font th:text="${commodity.getCommodityName()}"/><br>
+                        <b>生产厂商：</b><font th:text="${commodity.getCommodityManuFacturer()}"/><br>
+                        <b>商品编号：</b><font th:text="${commodity.getCommodityId()}"/><br>
+                        <b>商品总数量：</b><font th:text="${commodity.getCommodityAmount()}"/><br>
+                        <b>剩余库存：</b><font th:text="${commodity.getCommodityLeaveNum()}"/><br>
+                        <b>上架时间：</b><font th:text="${commodity.getCommodityRegTime()}"/><br>
+                        <font style="text-decoration: line-through;" th:text="${commodity.getCommodityPrice()}"/>
+                        <font th:text="${commodity.getCommodityFcPrice()}"/><br>
+                        <a th:href="@{'init.ny?commId='+${commodity.getCommodityId()}+'&type=cardAdd'}">
+                            <img src="img/cart.gif" width="20" height="20" style="vertical-align:middle;">
+                            &nbsp;添加到购物车
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div style="width: auto;height: 300px;">
+                <img src="img/pag_bg.png" width="15" height="15">&nbsp;&nbsp;
+                <font th:text="商品描述"/>
+                <hr>
+                <div th:text="${commodity.getCommodityDepict()}"/>
+            </div>
+        </div>
+
+        <div id="middle" th:if="${type.equals('userInfo')}">
+            <img src="img/pag_bg.png" width="15" height="15">&nbsp;&nbsp;
+            <font>我的信息</font>
+            <hr>
+            <br>
+            用户名：<font th:text="${userInfo.getUserName()}"/><br/><br/>
+            真实姓名：<font th:text="${userInfo.getUserRealName()}"/><br/><br/>
+            性别：<font th:text="${userInfo.getUserSex()}"/><br/><br/>
+            地址：<font th:text="${userInfo.getUserAddress()}"/><br/><br/>
+            手机号：<font th:text="${userInfo.getUserPhone()}"/><br/><br/>
+            邮编：<font th:text="${userInfo.getUserPost()}"/><br/><br/>
+            邮箱：<font th:text="${userInfo.getUserEmail()}"/>
+        </div>
+
+        <!-- <div id="right">
+            <div style="width: auto;height: 150px;border: 1px solid red;">
+                <div style="width: auto;height: 25px;text-align: center;padding-top: 20px;">
+                    用户登录
+                </div>
+                <form action="#" method="post" style="text-align: center;">
+                    <input type="text" placeholder="用户名" class="input" id="" name=""><br />
+                    <input type="password" placeholder="密码" class="input" id="" name=""><br /><br />
+                    <input type="submit" value="登录" />
+                    <input type="reset" value="重置" />
+                </form>
+            </div>
+        </div> -->
+    </div>
+</div>
+</body>
+</html>

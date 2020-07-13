@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.IMallCommodityDao">
+
+	<resultMap id="MallCommodityMap" type="com.pojo.MallCommodity">
+		<id column="commodity_id" property="commodityId"/>
+		<result column="commodity_name" property="commodityName"/>
+		<result column="commodity_class_id" property="commodityClassId"/>
+		<result column="commodity_manu_facturer" property="commodityManuFacturer"/>
+		<result column="commodity_depict" property="commodityDepict"/>
+		<result column="commodity_price" property="commodityPrice"/>
+		<result column="commodity_fc_price" property="commodityFcPrice"/>
+		<result column="commodity_amount" property="commodityAmount"/>
+		<result column="commodity_leave_num" property="commodityLeaveNum"/>
+		<result column="commodity_reg_time" property="commodityRegTime"/>
+		<result column="commodity_image" property="commodityImage"/>
+	</resultMap>
+
+</mapper>

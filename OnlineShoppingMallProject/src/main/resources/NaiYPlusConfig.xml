@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<naiYConfig>
+
+    <generateDatabase databaseName="kc_database" tablePrefix="mall_">
+    </generateDatabase>
+
+    <dataSource>
+        <username name="root"/>
+        <password pass="admin123"/>
+        <url url="jdbc:mysql://localhost:3306/kc_database?serverTimezone=UTC"/>
+    </dataSource>
+
+    <javaOutput package="com"/>
+
+</naiYConfig>

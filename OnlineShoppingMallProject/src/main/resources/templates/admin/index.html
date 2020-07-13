@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>网络商城 - 后台</title>
+</head>
+<script src="./js/jquery-3.4.1.min.js"></script>
+<style>
+    ul {
+        list-style: none;
+    }
+
+    #menu {
+        cursor: pointer;
+        margin: 0px;
+        padding: 0px;
+        margin-top: 25px;
+        margin-left: 20px;
+    }
+
+    #menu li ul {
+        display: none;
+    }
+
+    #menu li ul li {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+</style>
+<body style="margin: 0px;">
+<div style="width: auto;height: 750px;border: 1px solid red;">
+    <div id="top" style="width: auto;height: 80px;border: 1px solid red;">
+        <div style="width: 300px;height: 80px;float: left;">
+            <h2 style="margin-left: 30px;">帆城购物系统后台管理</h2>
+        </div>
+        <div style="width: auto;height: 80px;">
+
+        </div>
+    </div>
+    <div id="bottom" style="width: auto;height: 666px;border: 1px solid red;">
+        <div id="left" style="width: 200px;height: 664px;border: 1px solid red;float: left;">
+            <ul onselectstart="return false" id="menu">
+                <li>
+                    <b id="1" onclick="displayUl(id)">商品分类列表</b>
+                    <ul id="ul1">
+                        <li><a href="#" target="content">加入商品分类</a></li>
+                        <li><a href="#" target="content">查看商品分类</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <b id="2" onclick="displayUl(id)">商品列表</b>
+                    <ul id="ul2">
+                        <li><a href="#" target="content">加入商品</a></li>
+                        <li><a href="#" target="content">查看商品</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <b id="3" onclick="displayUl(id)">订单管理</b>
+                    <ul id="ul3">
+                        <li><a href="#" target="content">查看订单</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <b id="4" onclick="displayUl(id)">用户管理</b>
+                    <ul id="ul4">
+                        <li><a href="#" target="content">查看用户</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <b id="5" onclick="displayUl(id)">系统管理</b>
+                    <ul id="ul5">
+                        <li><a href="#" target="content">密码修改</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+        <div id="right" style="width: auto;height: 664px;border: 1px solid red;">
+            <iframe id="content" name="content" style="width: 1308px;height: 660px;" frameBorder=0></iframe>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function displayUl(id) {
+        var ul = $("#ul" + id);
+
+        if (ul.css("display") == "none") {
+            ul.css("display", "block");
+        } else {
+            ul.css("display", "none");
+        }
+    }
+</script>
+</html>
