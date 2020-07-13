@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>修改帖子</title>
+</head>
+<body>
+
+<form action="topic/update.do" method="post">
+    <input type="hidden" th:value="${topic.getTId()}" readonly="readonly">
+    <table border="1">
+        <tr>
+            <td>所属板块编号</td>
+            <td><input type="text" name="tSId" th:value="${topic.getTSId()}"></td>
+        </tr>
+        <tr>
+            <td>发帖用户编号</td>
+            <td><input type="text" name="tUId" th:value="${topic.getTUId()}"></td>
+        </tr>
+        <tr>
+            <td>帖子标题</td>
+            <td><input type="text" name="tTopic" th:value="${topic.getTTopic()}"></td>
+        </tr>
+        <tr>
+            <td>帖子内容</td>
+            <td><input type="text" name="tContents" th:value="${topic.getTContents()}"></td>
+        </tr>
+        <tr>
+            <td>回复数量</td>
+            <td><input type="date" name="tReplyCount" th:value="${topic.getTReplyCount()}"></td>
+        </tr>
+        <tr>
+            <td>点击数量</td>
+            <td><input type="text" name="tClickCount" th:value="${topic.getTClickCount()}"></td>
+        </tr>
+        <tr>
+            <td>发帖时间</td>
+            <td><input type="date" name="tPublishTime" th:value="${topic.getTPublishTime()}"></td>
+        </tr>
+        <tr>
+            <td>修改时间</td>
+            <td><input type="date" name="tModifyTime" th:value="${topic.getTModifyTime()}"></td>
+        </tr>
+        <tr><td colspan="2"><input type="submit" value="提交修改"></td></tr>
+    </table>
+
+</form>
+</table>
+<a href="index.html">返回首页</a>
+</body>
+</html>

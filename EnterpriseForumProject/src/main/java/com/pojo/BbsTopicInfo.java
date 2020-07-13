@@ -17,8 +17,8 @@ public class BbsTopicInfo {
     private String tContents;
     private Integer tReplyCount;
     private Integer tClickCount;
-    private Timestamp tPublishTime;
-    private Timestamp tModifyTime;
+    private Date tPublishTime;
+    private Date tModifyTime;
 
     public Integer getTId() {
         return tId;
@@ -76,19 +76,19 @@ public class BbsTopicInfo {
         this.tClickCount = tClickCount;
     }
 
-    public Timestamp getTPublishTime() {
+    public Date getTPublishTime() {
         return tPublishTime;
     }
 
-    public void setTPublishTime(Timestamp tPublishTime) {
+    public void setTPublishTime(Date tPublishTime) {
         this.tPublishTime = tPublishTime;
     }
 
-    public Timestamp getTModifyTime() {
+    public Date getTModifyTime() {
         return tModifyTime;
     }
 
-    public void setTModifyTime(Timestamp tModifyTime) {
+    public void setTModifyTime(Date tModifyTime) {
         this.tModifyTime = tModifyTime;
     }
 

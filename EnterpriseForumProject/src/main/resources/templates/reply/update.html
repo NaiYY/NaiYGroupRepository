@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="reply/update.do" method="post">
+    <input type="text" name="rId" hidden="hidden" th:value="${reply.getRId()}">
+    <table border="1">
+        <tr>
+            <td>回复的主贴编号</td>
+            <td><input type="text" name="rTId" th:value="${reply.getRTId()}"></td>
+        </tr>
+        <tr>
+            <td>跟贴所在编号</td>
+            <td>
+                <input type="text" name="rSId" th:value="${reply.getRSId()}">
+            </td>
+        </tr>
+        <tr>
+            <td>跟帖人编号</td>
+            <td><input type="text" name="rUId" th:value="${reply.getRUId()}"></td>
+        </tr>
+        <tr>
+            <td>跟帖主题</td>
+            <td><input type="text" name="rTopic" th:value="${reply.getRTopic()}"></td>
+        </tr>
+        <tr>
+            <td>跟帖内容</td>
+            <td><textarea name="rContents" rows="3" cols="20" th:value="${reply.getRContents()}"></textarea></td>
+        </tr>
+        <tr>
+            <td>跟帖时间</td>
+            <td><input type="date" name="rPublishTime" th:value="${reply.getRPublishTime()}"></td>
+        </tr>
+        <tr>
+            <td>修改时间</td>
+            <td><input type="date" name="rModifyTime" th:value="${reply.getRModifyTime()}"></td>
+        </tr>
+        <tr><td colspan="2"><input type="submit" value="提交修改"></td></tr>
+    </table>
+
+</form>
+</table>
+<a href="index.html">返回首页</a>
+</body>
+</html>

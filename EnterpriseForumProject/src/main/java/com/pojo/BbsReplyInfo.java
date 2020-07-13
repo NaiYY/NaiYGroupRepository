@@ -16,8 +16,8 @@ public class BbsReplyInfo {
     private Integer rUId;
     private String rTopic;
     private String rContents;
-    private Timestamp rPublishTime;
-    private Timestamp rModifyTime;
+    private Date rPublishTime;
+    private Date rModifyTime;
 
     public Integer getRId() {
         return rId;
@@ -67,19 +67,19 @@ public class BbsReplyInfo {
         this.rContents = rContents;
     }
 
-    public Timestamp getRPublishTime() {
+    public Date getRPublishTime() {
         return rPublishTime;
     }
 
-    public void setRPublishTime(Timestamp rPublishTime) {
+    public void setRPublishTime(Date rPublishTime) {
         this.rPublishTime = rPublishTime;
     }
 
-    public Timestamp getRModifyTime() {
+    public Date getRModifyTime() {
         return rModifyTime;
     }
 
-    public void setRModifyTime(Timestamp rModifyTime) {
+    public void setRModifyTime(Date rModifyTime) {
         this.rModifyTime = rModifyTime;
     }
 

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="../topic/bbsTopicInsert.do" method="post">
+    <table border="1">
+        <tr>
+            <td>所属板块编号</td>
+            <td><input type="text" name="tSId"></td>
+        </tr>
+        <tr>
+            <td>发帖用户编号</td>
+            <td><input type="text" name="tUId"></td>
+        </tr>
+        <tr>
+            <td>帖子标题</td>
+            <td><input type="text" name="tTopic"></td>
+        </tr>
+        <tr>
+            <td>帖子内容</td>
+            <td>
+                <textarea name="tContents" rows="3" cols="20"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>回复数量</td>
+            <td><input type="text" name="tReplyCount"></td>
+        </tr>
+        <tr>
+            <td>点击数量</td>
+            <td><input type="text" name="tClickCount"></td>
+        </tr>
+        <tr>
+            <td>发帖时间</td>
+            <td><input type="date" name="tPublishTime"></td>
+        </tr>
+        <tr>
+            <td>修改时间</td>
+            <td><input type="date" name="tModifyTime"></td>
+        </tr>
+        <tr><td colspan="2"><input type="submit" value="增加"></td></tr>
+    </table>
+
+</form>
+</table>
+<a href="index.html">返回首页</a>
+</body>
+</html>
