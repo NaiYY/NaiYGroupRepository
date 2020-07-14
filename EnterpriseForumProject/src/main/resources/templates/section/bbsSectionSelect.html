@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>查询所有论坛用户</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>板块编号</td>
+        <td>板块名称</td>
+        <td>帖子数目</td>
+        <td>版主编号</td>
+        <td>父板块编号</td>
+
+        <td>操作</td>
+    </tr>
+
+    <tr th:each="sectionInfo,userStart:${sectionInfoList}">
+        <td th:text="${sectionInfo.getSId()}"></td>
+        <td th:text="${sectionInfo.getSName()}"></td>
+        <td th:text="${sectionInfo.getSTopicCount()}"></td>
+        <td th:text="${sectionInfo.getSMasterId()}"></td>
+        <td th:text="${sectionInfo.getSParentId()}"></td>
+        <td><a th:href="@{'bbsSectionDelete.do?sId='+${sectionInfo.getSId()}}">删除</a> ||
+            <a th:href="@{'bbsSectionUpdate.do?sId='+${sectionInfo.getSId()}}">修改</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

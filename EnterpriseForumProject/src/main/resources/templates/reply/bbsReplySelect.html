@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>查询所有论坛用户</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>跟贴编号</td>
+        <td>回复的主贴编号</td>
+        <td>跟贴所在编号</td>
+        <td>跟帖人编号</td>
+        <td>跟帖主题</td>
+        <td>跟帖内容</td>
+        <td>跟帖时间</td>
+        <td>修改时间</td>
+        <td>操作</td>
+    </tr>
+
+    <tr th:each="replyInfo,userStart:${replyInfoList}">
+        <td th:text="${replyInfo.getRId()}"></td>
+        <td th:text="${replyInfo.getRTId()}"></td>
+        <td th:text="${replyInfo.getRSId()}"></td>
+        <td th:text="${replyInfo.getRUId()}"></td>
+        <td th:text="${replyInfo.getRTopic()}"></td>
+        <td th:text="${replyInfo.getRContents()}"></td>
+        <td th:text="${replyInfo.getRPublishTime()}"></td>
+        <td th:text="${replyInfo.getRModifyTime()}"></td>
+        <td><a th:href="@{'bbsReplyDelete.do?rId='+${replyInfo.getRId()}}">删除</a> ||
+            <a th:href="@{'bbsReplyUpdate.do?rId='+${replyInfo.getRId()}}">修改</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

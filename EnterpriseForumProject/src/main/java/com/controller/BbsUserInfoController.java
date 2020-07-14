@@ -26,7 +26,7 @@ public class BbsUserInfoController {
     @RequestMapping("user/bbsUserInsert.do")
     public String bbsUserInsert(BbsUserInfo userInfo, Model model) {
         String performingFunction = "bbsUserInsert";
-        boolean flag = bbsUserInfoService.save(userInfo);
+        bbsUserInfoService.save(userInfo);
         model.addAttribute("performingFunction", performingFunction);
         model.addAttribute("user", userInfo);
         return "user/bbsUserSuccessfulExecution";
@@ -46,7 +46,7 @@ public class BbsUserInfoController {
     }
 
     @RequestMapping("user/update.do")
-    public String Update(BbsUserInfo userInfo, Model model) {
+    public String update(BbsUserInfo userInfo, Model model) {
         String performingFunction = "update";
         BbsUserInfo update = bbsUserInfoService.getById(userInfo.getUId());
         model.addAttribute("performingFunction", performingFunction);

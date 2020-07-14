@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="../reply/bbsReplyInsert.do" method="post">
+    <table border="1">
+        <tr>
+            <td>回复的主贴编号</td>
+            <td><input type="text" name="rTId"></td>
+        </tr>
+        <tr>
+            <td>跟贴所在编号</td>
+            <td>
+                <input type="text" name="rSId">
+            </td>
+        </tr>
+        <tr>
+            <td>跟帖人编号</td>
+            <td><input type="text" name="rUId"></td>
+        </tr>
+        <tr>
+            <td>跟帖主题</td>
+            <td><input type="text" name="rTopic"></td>
+        </tr>
+        <tr>
+            <td>跟帖内容</td>
+            <td><textarea name="rContents" rows="3" cols="20"></textarea></td>
+        </tr>
+        <tr><td colspan="2"><input type="submit" value="增加"></td></tr>
+    </table>
+
+</form>
+</table>
+<a href="index.html">返回首页</a>
+</body>
+</html>

@@ -16,11 +16,12 @@
         <td>点击数量</td>
         <td>发帖时间</td>
         <td>修改时间</td>
+        <td>操作</td>
     </tr>
 
     <tr th:each="topicInfo,userStart:${bbsTopicInfoList}">
         <td th:text="${topicInfo.getTId()}"></td>
-        <td th:text="${topicInfo.getTSId}"></td>
+        <td th:text="${topicInfo.getTSId()}"></td>
         <td th:text="${topicInfo.getTUId()}"></td>
         <td th:text="${topicInfo.getTTopic()}"></td>
         <td th:text="${topicInfo.getTContents()}"></td>
@@ -28,8 +29,8 @@
         <td th:text="${topicInfo.getTClickCount()}"></td>
         <td th:text="${topicInfo.getTPublishTime()}"></td>
         <td th:text="${topicInfo.getTModifyTime()}"></td>
-        <td><a th:href="@{'bbsUserDelete.do?uId='+${topicInfo.getTId()}}">删除</a> ||
-            <a th:href="@{'bbsUserUpdate.do?uId='+${topicInfo.getTId()}}">修改</a>
+        <td><a th:href="@{'bbsTopicDelete.do?tId='+${topicInfo.getTId()}}">删除</a> ||
+            <a th:href="@{'bbsTopicUpdate.do?tId='+${topicInfo.getTId()}}">修改</a>
         </td>
     </tr>
 </table>

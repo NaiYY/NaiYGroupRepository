@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form action="/update.do" method="post">
+<form action="user/update.do" method="post">
     <input type="hidden" name="uId" th:value="${user.getUId()}">
     <table border="1">
         <tr>
@@ -33,7 +33,7 @@
             <td>用户类型</td>
             <td><input type="text" name="uType" th:value="${user.getUType()}"></td>
         </tr>
-        <tr><td colspan="2"><input type="submit" value="增加"></td></tr>
+        <tr><td colspan="2"><input type="submit" value="提交修改"></td></tr>
     </table>
 
 </form>

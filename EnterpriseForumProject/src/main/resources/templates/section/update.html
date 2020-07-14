@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="section/update.do" method="post">
+    <td><input hidden="hidden" type="text" name="sId" th:value="${section.getSId()}"></td>
+    <table border="1">
+        <tr>
+            <td>板块名称</td>
+            <td><input type="text" name="sName" th:value="${section.getSName()}"></td>
+        </tr>
+        <tr>
+            <td>帖子数目</td>
+            <td><input type="text" name="sTopicCount" th:value="${section.getSTopicCount()}"></td>
+        </tr>
+        <tr>
+            <td>版主编号</td>
+            <td>
+                <input type="text" name="sMasterId" th:value="${section.getSMasterId()}">
+            </td>
+        </tr>
+        <tr>
+            <td>父板块编号</td>
+            <td><input type="text" name="sParentId" th:value="${section.getSParentId()}"></td>
+        </tr>
+        <tr><td colspan="2"><input type="submit" value="提交修改"></td></tr>
+    </table>
+
+</form>
+</table>
+<a href="index.html">返回首页</a>
+</body>
+</html>
