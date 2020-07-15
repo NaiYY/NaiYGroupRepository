@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>普通用户页</title>
+</head>
+<script src="./js/jquery-3.4.1.min.js"></script>
+<style>
+    ul {
+        list-style: none;
+    }
+
+    #menu {
+        cursor: pointer;
+        margin: 0px;
+        padding: 0px;
+        margin-top: 25px;
+        margin-left: 20px;
+    }
+
+    #menu li ul {
+        display: none;
+    }
+
+    #menu li ul li {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+<body style="margin: 0px;">
+<div style="width: auto;height: 750px;border: 1px solid red;">
+    <div id="top" style="width: auto;height: 80px;border: 1px solid red;">
+        <div style="width: 300px;height: 80px;float: left;">
+            <h2 style="margin-left: 30px;">普通用户页</h2>
+        </div>
+        <div style="width: auto;height: 80px;">
+
+        </div>
+    </div>
+    <div id="bottom" style="width: auto;height: 666px;border: 1px solid red;">
+        <div id="left" style="width: 200px;height: 664px;border: 1px solid red;float: left;">
+            <ul onselectstart="return false" id="menu">
+                <li>
+                    <b id="1" onclick="displayUl(id)">主题列表</b>
+                    <ul id="ul1">
+                        <li><a href="/topic/bbsTopicSelectGeneral.do" target="test">查看所有主题</a></li>
+                        <li><a href="/topic/bbsTopicInsert.html" target="test">发表主题</a></li>
+                        <li><a href="/reply/bbsReplyInsert.html" target="test">回复主题</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+        <div id="right" style="width: auto;height: 664px;border: 1px solid red;">
+            <iframe id="test" name="test" style="width: 1308px;height: 660px;" frameBorder=0></iframe>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function displayUl(id) {
+        var ul = $("#ul" + id);
+
+        if (ul.css("display") == "none") {
+            ul.css("display", "block");
+        } else {
+            ul.css("display", "none");
+        }
+    }
+</script>
+</html>

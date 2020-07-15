@@ -1,6 +1,5 @@
 package com.controller;
 
-import com.pojo.BbsSectionInfo;
 import com.pojo.BbsTopicInfo;
 import com.service.IBbsTopicInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,14 @@ public class BbsTopicInfoController {
         model.addAttribute("bbsTopicInfoList", bbsTopicInfoList);
         return "topic/bbsTopicSelect";
     }
+
+    @RequestMapping("topic/bbsTopicSelectGeneral.do")
+    public String bbsTopicSelectGeneral(Model model){
+        List<BbsTopicInfo> bbsTopicInfoList = bbsTopicInfoService.list();
+        model.addAttribute("bbsTopicInfoList", bbsTopicInfoList);
+        return "topic/bbsTopicSelectGeneral";
+    }
+
 
     @RequestMapping("topic/bbsTopicInsert.do")
     public String bbsTopicInsert(BbsTopicInfo topicInfo, Model model) {
