@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -18,7 +20,7 @@ public class BbsUserInfoController {
     IBbsUserInfoService bbsUserInfoService;
 
     @RequestMapping("/login.do")
-    public String login(BbsUserInfo userInfo, Model model) {
+    public String login(BbsUserInfo userInfo, Model model, HttpServletRequest request, HttpServletResponse response) {
         List<BbsUserInfo> bbsUserInfoList = bbsUserInfoService.list();
         boolean flag = false;
         for (int i = 0; i < bbsUserInfoList.size(); i++) {
@@ -29,39 +31,26 @@ public class BbsUserInfoController {
             }
         }
         model.addAttribute("userInfo", userInfo);
-        /*Cookie[] cookies = request.getCookies();*/
-        /*if (cookies == null) {*/
-            if (flag) {
-                /*Cookie uName = new Cookie("uName", userInfo.getUName());
-                Cookie uPassword = new Cookie("uPassword", userInfo.getUPassword());
-                uName.setMaxAge(60*60*12);
-                uPassword.setMaxAge(60*60*12);
-                response.addCookie(uName);
-                response.addCookie(uPassword);*/
-
-                if (userInfo.getUType() == 0) {
-                    return "admin";
-                } else if (userInfo.getUType() == 1) {
-                    return "moderator";
-                } else if (userInfo.getUType() == 2) {
-                    return "general";
-                }else{
-                    return "user/bbsUserError";
-                }
+        Cookie uName = new Cookie("uName", userInfo.getUName());
+        Cookie uPassword = new Cookie("uPassword", userInfo.getUPassword());
+        response.addCookie(uName);
+        response.addCookie(uPassword);
+        HttpSession session = request.getSession();
+        session.setAttribute("uName", userInfo.getUName());
+        session.setAttribute("uPassword", userInfo.getUPassword());
+        if (flag) {
+            if (userInfo.getUType() == 0) {
+                return "admin";
+            } else if (userInfo.getUType() == 1) {
+                return "moderator";
+            } else if (userInfo.getUType() == 2) {
+                return "general";
+            } else {
+                return "user/bbsUserError";
             }
-        /*}else{
-            for (Cookie cookie:cookies) {
-                if ("uName".equals(cookie.getName())){
-
-                }
-                if ("uPassword".equals(cookie.getName())){
-
-                }
-            }
-        }*/
+        }
         return "user/bbsUserError";
     }
-
 
 
     @RequestMapping("user/bbsUserSelect.do")
