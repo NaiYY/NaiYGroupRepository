@@ -49,7 +49,7 @@
             </tr>
         </table></td>
         <td>
-            <form action="/login.do" method="POST" >
+            <form action="/bbsUserInsert.do" method="post" >
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                         <td colspan="2" align="center"><font color="red"></font></td>
@@ -63,15 +63,26 @@
                         <td><input name="uPassword" type="password"  size="20" /></td>
                     </tr>
                     <tr>
+                        <td height="35" class="login-text02">用户性别：<br /></td>
+                        <td><input name="uSex" type="text"  size="20" /></td>
+                    </tr>
+                    <tr>
+                        <td height="35" class="login-text02">用户头像路径</td>
+                        <td><input type="text" name="uFace" size="20"></td>
+                    </tr>
+                    <tr>
+                        <td height="35" class="login-text02">用户类型</td>
+                        <td><input type="text" name="uType" size="20"></td>
+                    </tr>
+                    <tr>
                         <td height="35">&nbsp;</td>
-                        <td><input type="submit" class="right-button01" value="确认登录"/>
-                            <input type="reset" class="right-button02" value="重 置" />
-                            <a href="bbsUserInsert.html"><input type="button" class="right-button01" value="注册"></a>
+                        <td><input type="submit" class="right-button01" value="确认注册"/>
+                            <input type="reset" class="right-button01" value="重置信息" />
+                            <a href="login.html"><input type="button" class="right-button01" value="返回首页"></a>
                         </td>
                     </tr>
                 </table>
             </form>
-
         </td>
     </tr>
 </table>

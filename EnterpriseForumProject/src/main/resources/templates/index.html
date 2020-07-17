@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <title>版主管理页</title>
+    <title>论坛首页</title>
 </head>
 <script src="./Js/jquery-3.4.1.min.js"></script>
 <style>
@@ -31,9 +31,9 @@
 <div style="width: auto;height: 750px;border: 1px solid rgba(15,0,0,0.42);">
     <div id="top" style="width: auto;height: 80px;border: 1px solid rgba(15,0,0,0.42);">
         <div style="width: 300px;height: 80px;float: left;">
-            <h2 style="margin-left: 30px;">版主管理页</h2>
+            <h2 style="margin-left: 30px;">论坛首页</h2>
         </div>
-        <div style="width: auto;height: 80px;">
+        <div style="width: auto;height: 80px;margin-left: 800px">
 
         </div>
     </div>
@@ -41,19 +41,10 @@
         <div id="left" style="width: 200px;height: 664px;border: 1px solid rgba(15,0,0,0.42);float: left;">
             <ul onselectstart="return false" id="menu">
                 <li>
-                    <b id="1" onclick="displayUl(id)">主题列表</b>
-                    <ul id="ul1">
-                        <li><a href="/topic/bbsTopicInsert.html" target="test">发表主题</a></li>
-                        <li><a href="/reply/bbsReplyInsert.html" target="test">回复主题</a></li>
-
-                    </ul>
+                    <a href="/section/bbsSectionSelect.do" target="test">查看板块</a>
                 </li>
                 <li>
-                    <b id="2" onclick="displayUl(id)">修改和删除</b>
-                    <ul id="ul2">
-                        <li><a href="/topic/bbsTopicSelect.do" target="test">修改和删除主题</a></li>
-                        <li><a href="/reply/bbsReplySelect.do" target="test">修改和删除回复</a></li>
-                    </ul>
+                    <a href="/topic/bbsTopicSelect.do" target="test">查看主题</a>
                 </li>
             </ul>
 

@@ -60,7 +60,7 @@ public class BbsUserInfoController {
         return "user/bbsUserSelect";
     }
 
-    @RequestMapping("user/bbsUserInsert.do")
+    @RequestMapping("/bbsUserInsert.do")
     public String bbsUserInsert(BbsUserInfo userInfo, Model model) {
         String performingFunction = "bbsUserInsert";
         bbsUserInfoService.save(userInfo);
