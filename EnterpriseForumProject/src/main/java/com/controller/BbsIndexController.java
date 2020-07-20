@@ -38,28 +38,13 @@ public class BbsIndexController {
         List<BbsReplyInfo> replyList = replyInfoService.list();
         List<BbsSectionInfo> sectionList = sectionInfoService.list();
         List<BbsTopicInfo> topicList = topicInfoService.list();
+
         model.addAttribute("userList", userList);
         model.addAttribute("replyList", replyList);
         model.addAttribute("sectionList", sectionList);
         model.addAttribute("topicList", topicList);
-        Cookie[] cookies = request.getCookies();
-        String uName = "";
-        String uPassowrd = "";
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("uName")) {
-                uName = cookie.getValue();
-            }
-            if (cookie.getName().equals("uPasswrod")) {
-                uPassowrd = cookie.getValue();
-            }
-        }
 
-        for (int i = 0; i < userList.size(); i++) {
-            if (userList.get(i).getUName().equals(uName) && userList.get(i).getUPassword().equals(uPassowrd)) {
-                model.addAttribute("user", userList.get(i));
-                return "index";
-            }
-        }
+
         return "index";
     }
 

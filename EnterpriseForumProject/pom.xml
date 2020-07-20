@@ -14,7 +14,14 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>enterprise</name>
     <description>Demo project for Spring Boot</description>
-
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+            <scope>true</scope>
+        </dependency>
+    </dependencies>
     <properties>
         <java.version>1.8</java.version>
     </properties>
